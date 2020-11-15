@@ -22,7 +22,7 @@ const candyColors =[
         }
     }
     createBoard()
-
+let colorBeingDragged
 squares.forEach(square => square.addEventListener('dragstart',dragstart))
 squares.forEach(square => square.addEventListener('dragend',dragend))
 squares.forEach(square => square.addEventListener('dragover',dragover))
@@ -31,6 +31,8 @@ squares.forEach(square => square.addEventListener('dragleave',dragleave))
 squares.forEach(square => square.addEventListener('drop',drop))
 
 function dragstart(){
+    colorBeingDragged =this.style.backgroundColor
+    console.log(colorBeingDragged)
     console.log(this.id ,'dragstart')
 }
 function dragend(){
