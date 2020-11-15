@@ -1,7 +1,8 @@
 body{
-    background-image: url('');
+    background-image: url('candy-crush-background-2.png');
 }
 .grid{
+    margin-top: 30px;
     height: 560px;
     width: 560px;
     display: flex;
