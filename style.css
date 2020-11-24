@@ -14,3 +14,17 @@ body{
     height: 70px;
     
 }
+.score-board{
+    border: 1px solid black;
+    color: brown;
+    width: 150px;
+    padding-left: 10px;
+    text-shadow: 2px 1px chocolate;
+    letter-spacing: 3px;
+    box-shadow: 5px 10px 20px red inset;
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}  

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const width =8
     const squares =[]
     let score =0
+    let displayScore =document.getElementById('score') 
 const candyColors =[
     'url(images/red-candy.png)',
     'url(images/green-candy.png)',
@@ -88,6 +89,7 @@ function checkRowForThree(){
         if(rowOfThree.every(index =>squares[index].style.backgroundImage===decidedColor && !isblank))
         {
             score +=3
+            displayScore.innerHTML =score
             console.log(score)
             rowOfThree.forEach(index => squares[index].style.backgroundImage='')
         }
@@ -104,6 +106,8 @@ function checkcolomnForThree(){
         if(colomnOfThree.every(index =>squares[index].style.backgroundImage===decidedColor && !isblank))
         {
             score +=3
+            displayScore.innerHTML =score
+
             console.log(score)
             colomnOfThree.forEach(index => squares[index].style.backgroundImage='')
         }
@@ -123,6 +127,8 @@ function checkRowForFour(){
         if(rowOfFour.every(index =>squares[index].style.backgroundImage===decidedColor && !isblank))
         {
             score +=4
+            displayScore.innerHTML =score
+
             console.log(score)
             rowOfFour.forEach(index => squares[index].style.backgroundImage='')
         }
@@ -139,6 +145,8 @@ function checkcolomnForFour(){
         if(colomnOfFour.every(index =>squares[index].style.backgroundImage===decidedColor && !isblank))
         {
             score +=4
+            displayScore.innerHTML =score
+
             console.log(score)
             colomnOfFour.forEach(index => squares[index].style.backgroundImage='')
         }
