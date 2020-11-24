@@ -114,7 +114,7 @@ checkcolomnForThree()
 function checkRowForFour(){
     for(let i =0 ;i<60 ;i++){
         let rowOfFour =[i ,i+1 ,i+2,i+3]
-        let decidedColor = squares[i].style.background
+        let decidedColor = squares[i].style.backgroundImage
         let isblank = squares[i].style.backgroundImage === ''
 
         let notValid =[5,6,7,13,14,15,21,22,23,29,30,31,37,38,39,45,46,47,53,54,55]
@@ -131,9 +131,9 @@ function checkRowForFour(){
 checkRowForFour()
 
 function checkcolomnForFour(){
-    for(let i =0 ;i<47 ;i++){
+    for(let i =0 ;i<39 ;i++){
         let colomnOfFour =[i ,i+width ,i+width*2,i+width*3]
-        let decidedColor = squares[i].style.background
+        let decidedColor = squares[i].style.backgroundImage
         let isblank = squares[i].style.backgroundImage === ''
 
         if(colomnOfFour.every(index =>squares[index].style.backgroundImage===decidedColor && !isblank))
@@ -147,12 +147,29 @@ function checkcolomnForFour(){
 checkcolomnForFour()
 
 
+function moveDown(){
+    for(let i =0 ;i<55;i++){
+        if(squares[i+width].style.background===''){
+            squares[i+width].style.background = squares[i].style.background
+            squares[i].style.background=''
+            const firstRow =[0,1,2,3,4,5,6,7]
+            const isFirstRow =firstRow.includes(i)
+            if(isFirstRow&&squares[i].style.background===''){
+                let randomColor = Math.floor(Math.random()*candyColors.length)
+                squares[i].style.background=candyColors[randomColor]
+            }
+        }
+    }
+}
+
+
 
 window.setInterval(function(){
     checkRowForThree()
     checkcolomnForThree()
     checkRowForFour()
     checkcolomnForFour()
+    moveDown()
 
 
 },100)
