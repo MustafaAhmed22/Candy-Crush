@@ -36,14 +36,26 @@ squares.forEach(square => square.addEventListener('drop',dragdrop))
 
 function dragstart(){
     squareBeingDragged =parseInt(this.id)
+    console.log(squareBeingDragged)
     colorBeingDragged =this.style.backgroundColor
     console.log(colorBeingDragged)
     console.log(this.id ,'dragstart')
 }
-function dragend(e){
-    e.preventDefault()
-
+function dragend(){
     console.log(this.id ,'dragend')
+    let validMoves =[squareBeingDragged-1 ,
+                    squareBeingDragged+1 ,
+                    squareBeingDragged-width ,
+                    squareBeingDragged+width]
+    let validmove =validMoves.includes(squareBeingReplaced)
+    if(squareBeingReplaced &&validmove){
+        squareBeingReplaced =null
+    }else if(squareBeingReplaced && !validmove){
+        squares[squareBeingReplaced].style.backgroundColor=colorBeingReplaced
+        squares[squareBeingDragged].style.backgroundColor =colorBeingDragged
+    }else {
+        squares[squareBeingDragged].style.backgroundColor =colorBeingDragged
+    }
 }
 function dragover(e){
     e.preventDefault()
