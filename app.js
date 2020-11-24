@@ -55,6 +55,7 @@ function dragend(){
         squares[squareBeingDragged].style.backgroundColor =colorBeingDragged
     }else {
         squares[squareBeingDragged].style.backgroundColor =colorBeingDragged
+        
     }
 }
 function dragover(e){
