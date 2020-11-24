@@ -82,6 +82,9 @@ function checkRowForThree(){
         let decidedColor = squares[i].style.background
         let isblank = squares[i].style.backgroundColor === ''
 
+        let notValid =[6,7,14,15,,22,23,30,31,38,39,46,47,54,55]
+        if(notValid.includes(i))continue
+
         if(rowOfThree.every(index =>squares[index].style.backgroundColor===decidedColor && !isblank))
         {
             score +=3
@@ -92,7 +95,67 @@ function checkRowForThree(){
 }
 checkRowForThree()
 
+function checkcolomnForThree(){
+    for(let i =0 ;i<47 ;i++){
+        let colomnOfThree =[i ,i+width ,i+width*2]
+        let decidedColor = squares[i].style.background
+        let isblank = squares[i].style.backgroundColor === ''
 
+        if(colomnOfThree.every(index =>squares[index].style.backgroundColor===decidedColor && !isblank))
+        {
+            score +=3
+            console.log(score)
+            colomnOfThree.forEach(index => squares[index].style.backgroundColor='')
+        }
+    }
+}
+checkcolomnForThree()
+
+function checkRowForFour(){
+    for(let i =0 ;i<60 ;i++){
+        let rowOfFour =[i ,i+1 ,i+2,i+3]
+        let decidedColor = squares[i].style.background
+        let isblank = squares[i].style.backgroundColor === ''
+
+        let notValid =[5,6,7,13,14,15,21,22,23,29,30,31,37,38,39,45,46,47,53,54,55]
+        if(notValid.includes(i))continue
+
+        if(rowOfFour.every(index =>squares[index].style.backgroundColor===decidedColor && !isblank))
+        {
+            score +=4
+            console.log(score)
+            rowOfFour.forEach(index => squares[index].style.backgroundColor='')
+        }
+    }
+}
+checkRowForFour()
+
+function checkcolomnForFour(){
+    for(let i =0 ;i<47 ;i++){
+        let colomnOfFour =[i ,i+width ,i+width*2,i+width*3]
+        let decidedColor = squares[i].style.background
+        let isblank = squares[i].style.backgroundColor === ''
+
+        if(colomnOfFour.every(index =>squares[index].style.backgroundColor===decidedColor && !isblank))
+        {
+            score +=4
+            console.log(score)
+            colomnOfFour.forEach(index => squares[index].style.backgroundColor='')
+        }
+    }
+}
+checkcolomnForFour()
+
+
+
+window.setInterval(function(){
+    checkRowForThree()
+    checkcolomnForThree()
+    checkRowForFour()
+    checkcolomnForFour()
+
+
+},100)
 
 
 
